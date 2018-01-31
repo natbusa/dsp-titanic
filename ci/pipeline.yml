@@ -16,13 +16,13 @@ jobs:
           inputs:
             - name: git-repo
           run:
-            path: ./ci/scripts/build-image.sh
-            dir: ./git-repo/
+            path: git-repo/ci/scripts/build-image.sh
           ouputs:
-            - name: git-repo
-        - put: repo-docker-image
-          params:
-            build: ./repo-docker-image
+            - name: repo-docker-image
+      - put: repo-docker-image
+        params:
+          build: repo-docker-image
+
 resources:
   - name: git-repo
     type: git

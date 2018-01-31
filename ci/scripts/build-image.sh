@@ -1,5 +1,8 @@
 #!/bin/bash
 
+pwd
+ls -la
+
 pushd git-repo
 URL=$(git remote show -n origin | grep Fetch | cut -d: -f2-)
 IMAGE=$(basename $URL .git)
