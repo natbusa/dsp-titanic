@@ -1,0 +1,26 @@
+---
+
+jobs:
+  - name: datascience
+    plan:
+      - get: git
+        trigger: true
+      - task: build-image
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source:
+              repository: jupyter/repo2docker
+              tag: 8a5b1ef
+          inputs:
+            - git
+          run:
+            path: git/ci/scripts/build-image.sh
+
+resources:
+  - name: git
+    type: git
+    source:
+      uri:         (( grab meta.github.uri ))
+      branch:      (( grab meta.github.branch_develop ))
