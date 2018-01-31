@@ -1,9 +1,6 @@
 #!/bin/bash
 
-pwd
-ls -la
-
-pushd git-repo
+pushd repo
 URL=$(git remote show -n origin | grep Fetch | cut -d: -f2-)
 IMAGE=$(basename $URL .git)
 VERSION=$(git rev-parse --short HEAD)
@@ -13,8 +10,8 @@ sed -n -e '/FROM/,$p' dockerfile.tmp > Dockerfile
 rm dockerfile.tmp
 popd
 
-mkdir repo-docker-image
-cp -Ra git-repo/binder repo-docker-image
-cp git-repo/Dockerfile repo-docker-image
-cp git-repo/main.ipynb repo-docker-image
-cp git-repo/README.md  repo-docker-image
+#copy files to output dir build
+cp -Ra repo/binder build
+cp repo/Dockerfile build
+cp repo/main.ipynb build
+cp repo/README.md  build
