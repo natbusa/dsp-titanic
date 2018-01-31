@@ -4,7 +4,9 @@ URL=$(git remote show -n origin | grep Fetch | cut -d: -f2-)
 IMAGE=$(basename $URL .git)
 VERSION=$(git rev-parse --short HEAD)
 
-jupyter-repo2docker --no-run --debug --user-id 1000 --user-name jovyan --image $IMAGE:$VERSION ${URL%.git}
+jupyter-repo2docker --no-run --no-build --debug --user-id 1000 --user-name jovyan --image $IMAGE:$VERSION ${URL%.git} > Dockerfile
+pwd
+ls -al
 
 #echo $CMD
 #docker run -v /var/run/docker.sock:/var/run/docker.sock jupyter/repo2docker:8a5b1ef $CMD
