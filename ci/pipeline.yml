@@ -3,7 +3,7 @@
 jobs:
   - name: datascience
     plan:
-      - get: git
+      - get: git-repo
         trigger: true
       - task: build-image
         config:
@@ -13,14 +13,12 @@ jobs:
             source:
               repository: jupyter/repo2docker
               tag: 8a5b1ef
-          inputs:
-            - git
           run:
-            path: git/ci/scripts/build-image.sh
+            path: git-repo/ci/scripts/build-image.sh
 
 resources:
-  - name: git
+  - name: git-repo
     type: git
     source:
-      uri:         (( grab meta.github.uri ))
-      branch:      (( grab meta.github.branch_develop ))
+      uri: https://github.com/natbusa/dsp-titanic.git
+      branch: master
