@@ -19,10 +19,10 @@ jobs:
             path: ./ci/scripts/build-image.sh
             dir: ./git-repo/
           ouputs:
-            - name: repo-dockerfile
+            - name: git-repo
         - put: repo-docker-image
           params:
-            build: repo-dockerfile
+            build: ./repo-docker-image
 resources:
   - name: git-repo
     type: git
