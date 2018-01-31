@@ -4,7 +4,7 @@ URL=$(git remote show -n origin | grep Fetch | cut -d: -f2-)
 IMAGE=$(basename $URL .git)
 VERSION=$(git rev-parse --short HEAD)
 
-jupyter-repo2docker --no-run --no-build --debug --user-id 1000 --user-name jovyan --image $IMAGE:$VERSION ${URL%.git} > Dockerfile
+jupyter-repo2docker --no-run --no-build --debug --user-id 1000 --user-name jovyan --image $IMAGE:$VERSION ${URL%.git} | tee Dockerfile
 pwd
 ls -al
 
