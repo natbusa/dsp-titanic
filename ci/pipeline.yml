@@ -18,10 +18,20 @@ jobs:
           run:
             path: ./ci/scripts/build-image.sh
             dir: ./git-repo/
-
+          ouputs:
+            - name: repo-dockerfile
+        - put: repo-docker-image
+          params:
+            build: repo-dockerfile
 resources:
   - name: git-repo
     type: git
     source:
       uri: https://github.com/natbusa/dsp-titanic.git
       branch: master
+  - name: repo-docker-image
+    type: docker-image
+    source:
+      email: natalino.busa@gmail.com
+      repository: http://registry-docker-registry.dsw.svc.cluster.local:5000/natbusa/test:onetwothree
+      insecure_registries: http://registry-docker-registry.dsw.svc.cluster.local:5000
