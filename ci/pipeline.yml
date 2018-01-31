@@ -13,8 +13,10 @@ jobs:
             source:
               repository: jupyter/repo2docker
               tag: 8a5b1ef
+          inputs:
+            - name: git-repo
           run:
-            path: git-repo/ci/scripts/build-image.sh
+            path: ./git-repo/ci/scripts/build-image.sh
 
 resources:
   - name: git-repo
