@@ -16,7 +16,8 @@ jobs:
           inputs:
             - name: git-repo
           run:
-            path: ./git-repo/ci/scripts/build-image.sh
+            path: ./ci/scripts/build-image.sh
+            dir: ./git-repo/
 
 resources:
   - name: git-repo

@@ -29,4 +29,7 @@ fly -t ds login -c $CONCOURSE_URL
 
 fly -t ds set-pipeline --pipeline datascience --config pipeline.yml
 fly -t ds unpause-pipeline --pipeline datascience
+
+# one-off trigger job
+fly -t ds trigger-job -j datascience/datascience
 ```
