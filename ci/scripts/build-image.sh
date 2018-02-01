@@ -16,3 +16,9 @@ cp -Ra repo/binder build
 cp repo/Dockerfile build
 cp repo/main.ipynb build
 cp repo/README.md  build
+
+R2D_PATH=/usr/local/lib/python3.6/site-packages/repo2docker
+cp -Ra R2D_PATH/buildpacks/conda build
+cp -Ra R2D_PATH/buildpacks/python build
+
+ls -la build
