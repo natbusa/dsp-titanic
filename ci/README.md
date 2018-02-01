@@ -11,7 +11,7 @@ The Helm install of concourse can be accessed:
   * From outside the cluster, run these commands in the same shell:
 ```
 export POD_NAME=$(kubectl get pods --namespace dsw -l "app=concourse-web" -o jsonpath="{.items[0].metadata.name}")
-kubectl port-forward --namespace default $POD_NAME 8080:8080 &
+kubectl port-forward --namespace dsw $POD_NAME 8080:8080 &
 ```
 
 2. Login with the following credentials
