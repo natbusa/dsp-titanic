@@ -36,6 +36,6 @@ resources:
     type: docker-image
     source:
       email: natalino.busa@gmail.com
-      repository: registry-docker-registry.dsw.svc.cluster.local:5000/natbusa/test
+      repository: registry-docker-registry.dsw.svc.cluster.local:5000/natbusa/r2d
       insecure_registries:
         - http://registry-docker-registry.dsw.svc.cluster.local:5000
