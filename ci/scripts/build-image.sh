@@ -3,13 +3,14 @@
 pushd repo
 URL=$(git remote show -n origin | grep Fetch | cut -d: -f2-)
 IMAGE=$(basename $URL .git)
-VERSION=$(git rev-parse --short HEAD)
 
 REPO_PROTO="$(echo $URL | grep :// | sed -e's,^\(.*://\).*,\1,g')"
 REPO_URL="$(echo ${URL/$proto/})"
 REPO_PATH="$(echo $REPO_URL | grep / | cut -d/ -f2-)"
+REPO_BRANCH="$(git branch | grep \* | cut -d ' ' -f2)"
+REPO_VERSION=$(git rev-parse --short HEAD)
 
-jupyter-repo2docker --no-build --debug --user-id 1000 --user-name jovyan --image $IMAGE:$VERSION . 2> dockerfile.tmp
+jupyter-repo2docker --no-build --debug --user-id 1000 --user-name jovyan --image $IMAGE:$REPO_VERSION . 2> dockerfile.tmp
 sed -n -e '/FROM/,$p' dockerfile.tmp > ../Dockerfile
 rm dockerfile.tmp
 popd
