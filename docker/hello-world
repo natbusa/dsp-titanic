@@ -1,3 +1,0 @@
-#!/bin/sh
-
-echo "hello ${NAME:-world}, This is concourse!"
