@@ -35,3 +35,11 @@ fly -t ds trigger-job -j datascience/datascience
 # monitor builds
 fly watch
 ```
+
+## To do:
+
+implement the following:
+
+  - import credentials for git user
+  - https://github.com/swce/keyval-resource
+  - run the image and collect kpi's and metrics
