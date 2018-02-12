@@ -6,10 +6,11 @@ This is the pipeline to manage data science repos.
 
 The Helm install of concourse can be accessed:
 
-  * Within your cluster, at the following DNS name at port 8080:  `concourse-web.default.svc.cluster.local`
+  * Within your cluster, at the following DNS name at port 8080:  `concourse-web.<namespace>.svc.cluster.local`
 
   * From outside the cluster, run these commands in the same shell:
 ```
+# assuming the k8s namespace is called 'dsf'
 export POD_NAME=$(kubectl get pods --namespace dsf -l "app=concourse-web" -o jsonpath="{.items[0].metadata.name}")
 kubectl port-forward --namespace dsf $POD_NAME 8080:8080 &
 ``
@@ -20,7 +21,7 @@ kubectl port-forward --namespace dsf $POD_NAME 8080:8080 &
    - Password: concourse
 
 ## Setup
-
+```
 
 ```
 CONCOURSE_URL=http://127.0.0.1:8080
