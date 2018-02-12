@@ -11,8 +11,9 @@ The Helm install of concourse can be accessed:
   * From outside the cluster, run these commands in the same shell:
 ```
 # assuming the k8s namespace is called 'dsf'
-export POD_NAME=$(kubectl get pods --namespace dsf -l "app=concourse-web" -o jsonpath="{.items[0].metadata.name}")
-kubectl port-forward --namespace dsf $POD_NAME 8080:8080 &
+CONCOURSE_POD_NAME=$(kubectl get pods --namespace dsf -l "app=concourse-web" \
+                                      -o jsonpath="{.items[0].metadata.name}")
+kubectl port-forward --namespace dsf $CONCOURSE_POD_NAME 8080:8080 &
 ``
 
 2. Login with the following credentials
