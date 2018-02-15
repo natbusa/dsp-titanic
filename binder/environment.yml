@@ -1,7 +1,5 @@
 dependencies:
-  - flask
-  # - numpy
-  # - pandas=0.21.*
-  # - bokeh
-  # - pip:
-  #   - git+https://github.com/blaze/dask.git#egg=dask[complete]
+  - request
+  - pandas
+  - pip:
+    - git+https://github.com/natbusa/datalabframework.git

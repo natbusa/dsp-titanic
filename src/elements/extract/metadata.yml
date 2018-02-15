@@ -1,0 +1,28 @@
+dependencies:
+
+data:
+    input:
+        train:
+          sample : 1.0
+          source : titanic/data/raw/train.csv
+          format : text
+          encoding : UTF-8
+          provider: local
+        augment:
+          sample : 1.0
+          source : titanic/data/raw/nothing.csv
+          format : text
+          encoding : UTF-8
+          provider: local
+
+    output:
+        extracted:
+          sample : 1.0
+          source : titanic/data/set/clean/train
+          format : parquet
+          provider: local
+
+providers:
+    local:
+        service: filesystem
+        rootpath: '/home/jovyan/work/data'

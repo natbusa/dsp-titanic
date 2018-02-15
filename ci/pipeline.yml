@@ -22,6 +22,7 @@ jobs:
       - put: build
         params:
           build: build
+          tag_as_latest: true
           build_args:
             NB_USER: jovyan
             NB_UID: "1000"
