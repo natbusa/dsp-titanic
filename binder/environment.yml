@@ -1,5 +1,6 @@
 dependencies:
-  - request
+  - requests
   - pandas
+  - kafka-python
   - pip:
     - git+https://github.com/natbusa/datalabframework.git
