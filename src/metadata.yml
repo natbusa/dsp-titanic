@@ -1,22 +1,15 @@
 data:
     resources:
         train:
-            path: clean/train.csv
-            type: text
+            path: extract/train.csv
             format: csv
+            provider: local
 
             options:
                 header: true
                 inferSchema: true
 
-            provider: local
-            flow: input
-
         test:
-            sample : 1.0
-            path : clean/test.csv
-            type: text
+            path : extract/test.csv
             format: csv
-
             provider: local
-            flow: input

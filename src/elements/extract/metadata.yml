@@ -1,32 +1,22 @@
 ---
-#dependencies:
-#    - elements.clean
-#    - pipelines.explore.insight
 
 data:
     resources:
         train:
+            path: raw/train.csv
+            format: csv
+            provider: local
+
 #            sampling: 
 #                ratio: 0.8
 #                type: random
 #                seed: random
-                
-            path: source/train.csv
-            type: text
-            format: csv
+#            options:
+#                header: true
+#                inferSchema: true
 
-            options:
-                header: true
-                inferSchema: true
-
-            provider: local
-            flow: input
 
         test:
-            sample : 1.0
-            path : source/test.csv
-            type: text
+            path : raw/test.csv
             format: csv
-            
             provider: local
-            flow: input
