@@ -1,15 +1,1 @@
-data:
-    resources:
-        train:
-            path: extract/train.csv
-            format: csv
-            provider: local
-
-            options:
-                header: true
-                inferSchema: true
-
-        test:
-            path : extract/test.csv
-            format: csv
-            provider: local
+---

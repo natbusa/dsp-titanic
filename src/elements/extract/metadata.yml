@@ -1,22 +1,12 @@
 ---
-
 data:
     resources:
         train:
-            path: raw/train.csv
-            format: csv
+            path: extract/data.hdf
+            format: hdf
             provider: local
 
-#            sampling: 
-#                ratio: 0.8
-#                type: random
-#                seed: random
-#            options:
-#                header: true
-#                inferSchema: true
-
-
         test:
-            path : raw/test.csv
-            format: csv
+            path : extract/data.hdf
+            format: hdf
             provider: local

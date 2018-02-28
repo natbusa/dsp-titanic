@@ -1,27 +1,12 @@
 ---
-#dependencies:
-#    - elements.clean
-#    - pipelines.explore.insight
-
 data:
     resources:
         train:
             path: raw/train.csv
-            type: text
             format: csv
-
-            options:
-                header: true
-                inferSchema: true
-
             provider: local
-            flow: input
 
         test:
-            sample : 1.0
             path : raw/test.csv
-            type: text
             format: csv
-            
             provider: local
-            flow: input
