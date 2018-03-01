@@ -31,6 +31,4 @@ example of absolute aliases:
     
 example of relative aliases:
     `train`
-    
-    
 
