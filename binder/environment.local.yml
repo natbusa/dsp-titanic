@@ -1,9 +1,0 @@
-channels:
-  - damianavila82
-
-dependencies:
-  - requests
-  - pandas
-  - jupyter
-  - jupyterlab
-  - rise

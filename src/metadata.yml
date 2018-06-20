@@ -3,41 +3,31 @@ data:
     providers:
         local:
             service: fs
-            rootpath: ./data
+            rootpath: data
 
 execution:
     engines:
         spark:
-            kernel: spark
-            loader: dataframe
-            context:
+            context: spark
+            config:
                 master: local[4]
                 jobname: 'test'
-                config:
-                    a: 1
-                    b: 2
-            
+
         pandas:
-            kernel: python
-            loader: pandas
+            context: pandas
 
         numpy:
-            kernel: python
-            loader: numpy
-
-                
+            context: numpy
 
 logging:
     severity: info
     handlers:
-        stream: 
+        stream:
             enable: true
             severity: info
-        kafka: 
-            enable: true
+        kafka:
+            enable: false
             severity: info
             topic: dlf
-            hosts: 
+            hosts:
                 - localhost:29092
-            
-                
