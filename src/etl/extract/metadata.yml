@@ -1,0 +1,10 @@
+---
+data:
+    resources:
+        train:
+            path: datasets/extract/train
+            provider: local
+
+        test:
+            path : datasets/extract/test
+            provider: local

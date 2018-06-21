@@ -2,11 +2,11 @@
 data:
     resources:
         train:
-            path: raw/train.csv
+            path: datasets/raw/train.csv
             format: csv
             provider: local
 
         test:
-            path : raw/test.csv
+            path : datasets/raw/test.csv
             format: csv
             provider: local
