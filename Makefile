@@ -4,6 +4,11 @@ build:
 run:
 	docker run -v `pwd`/src:/home/jovyan/src \
 	           -v `pwd`/data:/home/jovyan/data \
-					 	 -v `pwd`/datalabframework:/home/jovyan/datalabframework \
 	           -p 8888:8888 natbusa/titanic start.sh \
-						 jupyter lab
+						 jupyter lab &
+
+clean:
+	find . -name '.ipynb_checkpoints' -exec rm -rf  {} +
+	find . -name 'spark-warehouse' -exec rm -rf {} +
+
+.PHONY: clean
