@@ -1,30 +1,28 @@
 ---
-data:
-    providers:
-        howto:
-            service: fs
-            rootpath: data
-    resources:
-        ascombe:
-            path: datasets/ascombe.csv
-            format: csv
-            provider: howto
+providers:
+    howto:
+        service: fs
+        rootpath: data
+resources:
+    ascombe:
+        path: datasets/ascombe.csv
+        format: csv
+        provider: howto
 
-        corr:
-            path: datasets/correlation.csv
-            format: csv
-            provider: howto
+    corr:
+        path: datasets/correlation.csv
+        format: csv
+        provider: howto
 
-execution:
-    engines:
-        howto_spark:
-            context: spark
-            config:
-                master: local[*]
-                jobname: 'howto'
+engines:
+    howto_spark:
+        context: spark
+        config:
+            master: local[*]
+            jobname: 'howto'
 
-        howto_pandas:
-            context: pandas
+    howto_pandas:
+        context: pandas
 
-        howto_numpy:
-            context: numpy
+    howto_numpy:
+        context: numpy
