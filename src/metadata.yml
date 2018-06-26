@@ -1,33 +1,29 @@
 ---
-data:
-    providers:
-        local:
-            service: fs
-            rootpath: data
+providers:
+    local:
+        service: fs
+        rootpath: ../data
 
-execution:
-    engines:
-        spark:
-            context: spark
-            config:
-                master: local[4]
-                jobname: 'test'
+engines:
+    spark:
+        context: spark
+        config:
+            master: local[4]
+            jobname: 'test'
 
-        pandas:
-            context: pandas
+    pandas:
+        context: pandas
 
-        numpy:
-            context: numpy
+    numpy:
+        context: numpy
 
-logging:
-    severity: info
-    handlers:
-        stream:
-            enable: true
-            severity: info
-        kafka:
-            enable: false
-            severity: info
-            topic: dlf
-            hosts:
-                - localhost:29092
+loggers:
+    stream:
+        enable: true
+        severity: info
+    kafka:
+        enable: false
+        severity: info
+        topic: dlf
+        hosts:
+            - localhost:29092
