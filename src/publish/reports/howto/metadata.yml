@@ -20,6 +20,11 @@ engines:
         config:
             master: local[*]
             jobname: 'howto'
+    spark_test_cluster:
+        context: spark
+        config:
+            master: spark://testclster.teko.vn
+            jobname: 'howto'
 
     howto_pandas:
         context: pandas
