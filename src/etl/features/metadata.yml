@@ -5,6 +5,6 @@ resources:
         format: parquet
         provider: local
     test:
-        path : datasets/features/test
+        path: datasets/features/test
         format: parquet
         provider: local
