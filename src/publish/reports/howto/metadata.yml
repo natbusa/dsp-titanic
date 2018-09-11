@@ -18,11 +18,21 @@ engines:
     howto_spark:
         context: spark
         config:
-            master: local[*]
-            jobname: 'howto'
+            master: local[1]
+            jobname: '{{engines.howto_spark.context}}'
             
     howto_pandas:
         context: pandas
 
     howto_numpy:
         context: numpy
+---
+run: prod
+
+engines:
+    howto_spark:
+        context: spark
+        config:
+            master: local[*]
+            jobname: 'howto'
+
