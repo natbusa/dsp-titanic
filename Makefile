@@ -1,3 +1,6 @@
+SHELL=/bin/bash
+CONDA_ROOT=`which conda | sed -n 's/\(.*\)\/bin\/conda/\1/p'`
+
 build-docker:
 	docker build -f ci/Dockerfile -t natbusa/titanic:latest .
 
@@ -5,7 +8,7 @@ build-local:
 	conda env update -f binder/environment.yml
 
 run-local:
-		 jupyter lab &
+		 (source $(CONDA_ROOT)/bin/activate titanic && jupyter lab &)
 
 run-docker:
 	docker run -v `pwd`/src:/home/jovyan/src \
