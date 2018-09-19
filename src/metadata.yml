@@ -3,7 +3,20 @@ run: default
 providers:
     local:
         service: fs
-        rootpath: ../data
+        path: ../data
+    sqllite:
+        service: sqllite3
+        driver : "org.sqlite.JDBC"
+        path   : "jdbc:sqlite:data/flight-data/jdbc/my-sqlite.db"
+
+resources:
+    flightdata:
+        table:
+        provider: sqllite
+    test:
+        path: datasets/extract/test
+        format: parquet
+        provider: local
 
 engines:
     spark:
@@ -31,5 +44,3 @@ engines:
         config:
             master: local[*]
             jobname: '{{prod.pippo}}'
-
-
