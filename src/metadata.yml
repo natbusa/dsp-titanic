@@ -1,4 +1,5 @@
 ---
+run: default
 providers:
     local:
         service: fs
@@ -8,14 +9,8 @@ engines:
     spark:
         context: spark
         config:
-            master: local[4]
-            jobname: 'test'
-
-    pandas:
-        context: pandas
-
-    numpy:
-        context: numpy
+            master: local[1]
+            jobname: 'default'
 
 loggers:
     stream:
@@ -27,3 +22,14 @@ loggers:
         topic: dlf
         hosts:
             - localhost:29092
+---
+run: prod
+pippo: baudo
+engines:
+    spark:
+        context: spark
+        config:
+            master: local[*]
+            jobname: '{{prod.pippo}}'
+
+
