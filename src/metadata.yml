@@ -3,28 +3,40 @@ run: default
 providers:
     local:
         service: fs
-        path: ../data
-    sqllite:
-        service: sqllite3
-        driver : "org.sqlite.JDBC"
-        path   : "jdbc:sqlite:data/flight-data/jdbc/my-sqlite.db"
+        rootpath: ../data
+    chinook:
+        service: sqlite
+        path: ../data/datasets/raw/chinook.db
+    mydatabase:
+        service: mysql
+        hostname: localhost
+        port: 3306
+        database: mydatabase
+        username: root
+        password: root
 
 resources:
-    flightdata:
-        table:
-        provider: sqllite
-    test:
-        path: datasets/extract/test
-        format: parquet
+    music:
+        table: tracks
+        provider: chinook
+    customers:
+        table: customers
+        provider: mydatabase
+    output:
+        path: datasets/raw/ohohoh.csv
+        format: csv
         provider: local
+        
 
 engines:
     spark:
         context: spark
         config:
-            master: local[1]
-            jobname: 'default'
-
+            master: local[2]
+            jobname: 'default'   
+            packages:
+                -  org.xerial:sqlite-jdbc:3.23.1 
+                - mysql:mysql-connector-java:8.0.12
 loggers:
     stream:
         enable: true
@@ -44,3 +56,5 @@ engines:
         config:
             master: local[*]
             jobname: '{{prod.pippo}}'
+
+
