@@ -9,6 +9,11 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
 
+  redis:
+    image: redis
+    restart: always
+    volumes:
+      - ./volumes/redis:/var/lib/redis
 
   cassandra:
     image: cassandra
